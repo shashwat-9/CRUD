@@ -17,6 +17,13 @@ public class CRUD {
     @Autowired
     private PatientRepository repository;
 
+    @GetMapping("/")
+    public String hello() {
+        
+        return "Hello\nAPI(s)\n1. readAll\n2. readByName (Request Param arg -> name)\n3. add(RequestBody arg -> Json as specified in the assignment)"
+             + "\n4.update (RequestBody arg -> JSON with all the details and the id of the document to be changed) \n 5. delete (RequestParam arg -> id of document)";
+    }
+    
     @GetMapping("/readAll")
     public List<Patient> readAll() {
         return repository.findAll();
